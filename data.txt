@@ -1,4 +1,6 @@
-Nathan*123123*121212*A*oke*asd*
-oke*123*123123*koe*oke*koe*
-asdasd*123*123123*aknsdkasdm*adsadas*qweqweqw*
-Faiz*321123*213213*aw*oke*s3*
+Nathan,19,Malang,Kristen,Sarjana
+Zakky,20,Sidoarjo,Islam,Doktor
+Faiz,19,Sidoarjo,Islam,Magister
+Feldo,19,Jombang,Islam,SMK
+Abdullah Adil,22,Sidoarjo,Islam,SMA
+Abc,20,Sidoarjo,Kristen,SMA
