@@ -73,7 +73,7 @@ def tambahkan_data():
     b = input("Agama               : ")
     c = input("Pendidikan Terakhir : ")
     f = open("data.txt", "a")
-    f.writelines([n+","+u+","+a+","+b+","+c+"\n"])
+    f.writelines([n.upper()+","+u.upper()+","+a.upper()+","+b.upper()+","+c.upper()+"\n"])
     print("\nTekan [Enter] Untuk Melanjutkan")
     f.close()
     input()
@@ -85,6 +85,7 @@ def cari_data():
     print("==================================")
     f = open("data.txt")
     nc = input("Masukkan Nama Yang Ingin Anda Cari : ")
+    qwe = nc.upper() 
     isi = f.readlines()
     
     idx = 0
@@ -92,7 +93,7 @@ def cari_data():
     for a in isi:
 #        print(a)
         x = a.split(",")
-        if nc in x :
+        if qwe in x[0] :
             print("Data Ditemukan !!!")
             print("Nama                : "+x[0])
             print("Usia                : "+x[1])
@@ -122,6 +123,7 @@ def update_data():
     print("Anda Berada Pada Menu Update Data")
     print("==============================")
     upnama = input("Masukkan Nama Data Yang Ingin Diubah : ")
+    woe = upnama.upper()
     print("\nMasukkan Data Baru !!")
     print("_______________________")
     nb = input("Masukkan Nama Baru             : ")
@@ -130,17 +132,23 @@ def update_data():
     bb = input("Masukkan Agama Baru            : ")
     cb = input("Masukkan Pendidikan Akhir Baru : ")
     
+    unb = nb.upper()
+    uub = ub.upper()
+    uab = ab.upper()
+    ubb = bb.upper()
+    ucb = cb.upper()
+
     f = open("data.txt")
     isi = f.readlines()
     idx = 0
     for x in isi :
         data = x.split(",")
-        if data[0] == upnama:
-            data[0] = nb
-            data[1] = ub
-            data[2] = ab 
-            data[3] = bb
-            data[4] = cb + "\n"
+        if data[0] == woe:
+            data[0] = unb
+            data[1] = uub
+            data[2] = uab
+            data[3] = ubb
+            data[4] = ucb + "\n"
             datax = ",".join(data)
             isi[idx] = datax
             break
@@ -161,15 +169,15 @@ def hapus_data():
     print("=============================")
     
     hapus = input("Masukkan Nama Penduduk yang ingin dihapus : ")
-    
-    f = open("Tugas Akhir\data.txt")
+    oi = hapus.upper()
+    f = open("data.txt")
     isi = f.readlines()
     isi.sort()
     
     idx = 0
     for i in isi:
         h = i.split(",")
-        if h[0] == hapus :
+        if h[0] == oi :
             del(isi[idx])
             print("\nData Anda Berhasil Dihapus")
         idx += 1
