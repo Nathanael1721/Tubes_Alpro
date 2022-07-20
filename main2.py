@@ -143,7 +143,7 @@ def update_data():
     idx = 0
     for x in isi :
         data = x.split(",")
-        if data[0] == woe:
+        if woe in data[0]:
             data[0] = unb
             data[1] = uub
             data[2] = uab
@@ -177,7 +177,7 @@ def hapus_data():
     idx = 0
     for i in isi:
         h = i.split(",")
-        if h[0] == oi :
+        if oi in h [0]:
             del(isi[idx])
             print("\nData Anda Berhasil Dihapus")
         idx += 1
