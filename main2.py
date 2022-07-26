@@ -39,7 +39,8 @@ def lihat_data():
     print("\n================================")
     print("Anda Berada Pada Menu Menampilkan Data ")
     print("================================")
-    f = open("data.txt")
+    f = open("data.txt","a")
+    f = open("data.txt","r")
     isi = f.readlines()
     isi.sort
     if len(isi) == 0 :
@@ -73,11 +74,34 @@ def tambahkan_data():
     b = input("Agama               : ")
     c = input("Pendidikan Terakhir : ")
     f = open("data.txt", "a")
-    f.writelines([n.upper()+","+u.upper()+","+a.upper()+","+b.upper()+","+c.upper()+"\n"])
-    print("\nTekan [Enter] Untuk Melanjutkan")
+    aw = open("data.txt","r")
+    nu = n.upper()
+    for kembar in aw:
+        oi = kembar.split(",")
+        if oi[0] == nu :
+            print("Data Nama Sudah Ada, Silahkan Coba Nama Lain")
+            aw.close()
+            pilihan = int(input("""
+                Ketik 1 untuk coba lagi
+                Ketik 2 untuk kembali ke menu utama 
+                Ketik 3 untuk keluar program
+            """))
+            if pilihan == 1:
+                file = open("data.txt","r")
+                file.close()
+                tambahkan_data()
+            elif pilihan == 2:
+                menu()
+            elif pilihan == 3:
+                exit()
+        #else : 
+    f.writelines([nu+","+u.upper()+","+a.upper()+","+b.upper()+","+c.upper()+"\n"])
     f.close()
+    print("\nTekan [Enter] Untuk Melanjutkan")
+    
     input()
     menu()
+    
 #==================================================#
 def cari_data():
     print("\n==================================")
@@ -172,7 +196,7 @@ def hapus_data():
     oi = hapus.upper()
     f = open("data.txt")
     isi = f.readlines()
-    isi.sort()
+    #isi.sort()
     
     idx = 0
     for i in isi:
